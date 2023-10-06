@@ -18,5 +18,5 @@ const MovieHeader = (props) => {
         </div>
     </div>);
 }
-
+  
 export default MovieHeader;
