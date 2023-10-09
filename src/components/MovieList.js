@@ -5,7 +5,7 @@ import MovieListItem from "./MovieListItem";
 import MovieFooter from "./MovieFooter";
 
 const MovieList = (props) => {
-  const movies = [];
+  const {movies} = props;
 
   return (
     <div className="col">
@@ -21,21 +21,21 @@ const MovieList = (props) => {
         </thead>
 
         <tbody>
-          {props.movies.map((movie) => (
+          {movies.map((movie) => (
             <MovieListItem key={movie.id} movie={movie} />
           ))}
         </tbody>
       </table>
 
-      <MovieFooter totalMovies={props.movies.length} />
+      <MovieFooter totalMovies={movies.length} />
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
+    movies: state.movieReducer.movies
   };
 };
 
-export default connect(mapStateToProps, {dele})(MovieList);
+export default connect(mapStateToProps, {})(MovieList);
